@@ -7,8 +7,12 @@ def index(request):
 
 def login(request):
     print "hello world"
-    #return HttpResponse("soon login will come")
-    return render(request,'index.html',{"t":"rajesh shedolkar"})
+    # return HttpResponse("soon login will come")
+    return render(request,'login.html',{"t":"rajesh shedolkar"})
+
+def dashboard(request):
+    return render(request,'dashboard.html',{})
+
 '''
 
 
