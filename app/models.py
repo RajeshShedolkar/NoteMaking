@@ -9,8 +9,13 @@ class user_details(models.Model):
     def __unicode__(self):
         return self.username
 
+# class Notes(models.Model):
+#     user_id = CharField(max_length=50)
+#     notes_id = CharField(max_length=50)
+
 class NoteMaking(models.Model):
-    notes_id =  models.CharField(max_length=50)
+    # notes_id = models.ForeignKey(Notes)
+    notes_id = models.CharField(max_length=50)
     note = models.CharField(max_length=100)
 
     def __unicode__(self):
