@@ -30,10 +30,25 @@ def login(request):
 def dashboard(request):
     t = user_details.objects.all() #getting all data from te table
     d = []
-    data = {'data':d}
+    notes = []
+    data = {'data':d,'notes':notes}
     for i in t:
         di = {'username':i.username, 'full_name':i.full_name, 'age':i.age}
         d.append(di)
+    if request.method=="POST":
+        print request.POST
+        notes_id = str(uuid.uuid4())
+        note = request.POST['note']
+        u = NoteMaking(notes_id=notes_id, note=note)
+        u.save()
+    try:
+        t = NoteMaking.objects.all()
+        for i in t:
+                di = {'username':i.note}
+                notes.append(di)
+    except:
+        pass
+    print data
     return render(request,'dashboard.html', data)
 
 '''
