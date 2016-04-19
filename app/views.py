@@ -27,6 +27,12 @@ def login(request):
         return HttpResponseRedirect('/dashboard')
 
 def dashboard(request):
+    t = user_details.objects.all() #getting all data from te table
+    d = []
+    data = {'data':d}
+    for i in t:
+        di = {'username':i.username, 'full_name':i.full_name, 'age':i.age}
+        d.append(di)
     return render(request,'dashboard.html', data)
 
 '''
