@@ -16,3 +16,25 @@
   </tr>
   {% endfor %}
 </table>
+
+<div id="notes">
+     <form class="form-horizontal" name="LoginForm" action="/dashboard/" method="post">
+     {% csrf_token %}
+
+     <div class="control-group">
+         <label class="control-label" for="username">Username</label>
+         <div class="controls">
+             <input type="text" id="note" name="note"  placeholder="write notes">
+         </div>
+     </div>
+     <div class="control-group">
+         <div class="controls">
+             <button type="submit" class="btn">Login</button>
+         </div>
+     </div>
+     </form>
+ </div>
+
+
+<script>
+</script>
