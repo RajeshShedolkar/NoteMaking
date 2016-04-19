@@ -12,3 +12,6 @@ class user_details(models.Model):
 class NoteMaking(models.Model):
     notes_id =  models.CharField(max_length=50)
     note = models.CharField(max_length=100)
+
+    def __unicode__(self):
+        return self.note
