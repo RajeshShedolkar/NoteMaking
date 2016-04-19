@@ -1,40 +1,50 @@
 <!-- rajesh shedolkar
 {{ test }} -->
 <link rel="stylesheet" href= "/static/css/bootstrap.min.css"></link>
+<div class="container" style="padding-top:30px;">
+  <table align="center">
+    <tr>
+      <th class="col-md-2"> First Name </th>
+      <th class="col-md-2"> User Name </th>
+      <th class="col-md-2"> Age </th>
+    </tr>
+    {% for u in data %}
+    <tr>
+      <td class="col-md-2">{{u.full_name}}</td>
+      <td class="col-md-2">{{u.username}} </td>
+      <td class="col-md-2">{{u.age}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <div style="padding:20px;">--------------------------------------------------------------------------------</div>
+    <div>
+    <div >
+      <b> My Notes </b>
+      <ul>
+       {% for note in notes %}
+          <li>{{ note.note }}</li>
+       {% endfor %}
+      </ul>
+    </div>
 
-<table align="center">
-  <tr>
-    <th class="col-md-2"> First Name </th>
-    <th class="col-md-2"> User Name </th>
-    <th class="col-md-2"> Age </th>
-  </tr>
-  {% for u in data %}
-  <tr>
-    <td class="col-md-2">{{u.full_name}}</td>
-    <td class="col-md-2">{{u.username}} </td>
-    <td class="col-md-2">{{u.age}}</td>
-  </tr>
-  {% endfor %}
-</table>
+      <div id="notes">
+           <form class="form-horizontal" name="LoginForm" action="/dashboard/" method="post">
+           {% csrf_token %}
 
-<div id="notes">
-     <form class="form-horizontal" name="LoginForm" action="/dashboard/" method="post">
-     {% csrf_token %}
+           <div class="control-group row">
+               <div class="controls col-md-4">
+                   <input class="col-md-10" type="text" id="note" name="note"  placeholder="write notes" style="line-height: 30px;">
+               </div>
 
-     <div class="control-group">
-         <label class="control-label" for="username">Username</label>
-         <div class="controls">
-             <input type="text" id="note" name="note"  placeholder="write notes">
-         </div>
-     </div>
-     <div class="control-group">
-         <div class="controls">
-             <button type="submit" class="btn">Login</button>
-         </div>
-     </div>
-     </form>
- </div>
+               <div class="controls col-md-2">
+                   <button type="submit" class="btn">Add Note</button>
+               </div>
+           </div>
+           </form>
+       </div>
 
+  </div>
 
+</div>
 <script>
 </script>
