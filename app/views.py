@@ -10,15 +10,26 @@ def index(request):
 def login(request):
     print "hello world"
     # return HttpResponse("soon login will come")
-    return render(request,'login.html',{"t":"rajesh shedolkar"})
+    if request.method=='GET':
+        return render(request,'login.html',{"t":"rajesh shedolkar"})
+    else :
+        print request.POST
+        username = request.POST['username']
+        firstname = request.POST['firstname']
+        age = request.POST['age']
+        try :
+            age = int(age)
+        except:
+            messages.error(request, "age shuld be number")
+            return render(request,'login.html',{"t":"rajesh shedolkar"})
+        u = user_details(full_name=firstname, username=username, age=age)
+        u.save()
+        return HttpResponseRedirect('/dashboard')
 
 def dashboard(request):
-    return render(request,'dashboard.html',{})
+    return render(request,'dashboard.html', data)
 
 '''
-
-
-
 def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
 '''
