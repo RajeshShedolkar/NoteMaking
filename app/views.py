@@ -27,6 +27,19 @@ def login(request):
         u.save()
         return HttpResponseRedirect('/dashboard')
 
+
+# def notemaking(request,id,slug):
+#     # user = User.objects.create_user(username=username, password=password,
+#     #                 first_name=fullname, email=email)
+#     # user.save()
+#     return render_to_response(request, 'dashboard.html', {})
+#
+# def register_user():
+#     return return HttpResponseRedirect('/login')
+#
+# def login(request):
+#     return render_to_response(request, 'dashboard.html', {})
+
 def dashboard(request):
     t = user_details.objects.all() #getting all data from te table
     d = []
@@ -39,12 +52,16 @@ def dashboard(request):
         print request.POST
         notes_id = str(uuid.uuid4())
         note = request.POST['note']
-        u = NoteMaking(notes_id=notes_id, note=note)
-        u.save()
+        if note:
+            u = NoteMaking(notes_id=notes_id, note=note)
+            u.save()
+        else:
+            messages.error(request, "it's empty")
+            return HttpResponseRedirect('/dashboard')
     try:
         t = NoteMaking.objects.all()
         for i in t:
-                di = {'username':i.note}
+                di = {'note':i.note}
                 notes.append(di)
     except:
         pass
