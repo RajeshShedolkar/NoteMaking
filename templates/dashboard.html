@@ -7,12 +7,14 @@
       <th class="col-md-2"> First Name </th>
       <th class="col-md-2"> User Name </th>
       <th class="col-md-2"> Age </th>
+      <th class="col-md-2"> Test </th>
     </tr>
     {% for u in data %}
     <tr>
       <td class="col-md-2">{{u.full_name}}</td>
       <td class="col-md-2">{{u.username}} </td>
       <td class="col-md-2">{{u.age}}</td>
+      <td class="col-md-2">{{u.test}}</td>
     </tr>
     {% endfor %}
   </table>
