@@ -22,3 +22,10 @@ class NoteMaking(models.Model):
 
     def __unicode__(self):
         return self.note
+
+class Task(models.Model):
+    completed = models.BooleanField(default=False)
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    def __unicode__(self):
+        return self.title
