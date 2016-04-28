@@ -10,4 +10,5 @@ urlpatterns = [
     #both ways mapping app.urls
     # url(r'^', include('app.urls', namespace="app")),
     url(r'^', include('app.urls')),
+    url(r'^', include('api.urls'))
 ]
