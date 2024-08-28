@@ -5,7 +5,7 @@ M2Crypto==0.21.1
 Markdown==2.6.6
 MarkupSafe==0.23
 MySQL-python==1.2.3
-PAM==0.4.2
+PAM==0.4.2 
 Pillow==2.3.0
 PyJWT==1.4.0
 Pygments==1.6
